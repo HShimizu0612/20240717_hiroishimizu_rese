@@ -7,6 +7,7 @@ use App\Http\Requests\RegisterRequest;
 use App\Http\Requests\LoginRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
@@ -47,6 +48,16 @@ class AuthController extends Controller
     public function getLogout()
     {
         Auth::logout();
-        return redirect('auth.login');
+        return redirect('login');
+    }
+
+    public function getMypage()
+    {
+        return view('mypage');
+    }
+
+    public function showDone()
+    {
+        return view('/done');
     }
 }

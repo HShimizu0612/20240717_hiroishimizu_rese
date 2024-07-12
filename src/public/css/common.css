@@ -1,0 +1,25 @@
+.header {
+    height: 100px;
+    background-color: #EEEEEE;
+}
+
+h1 {
+    display: inline-block;
+    margin-top: 30px;
+    margin-left: 50px;
+    font-size: 40px;
+    color: #3560F6;
+}
+
+main {
+    height: 100vh;
+    background-color: #EEEEEE;
+}
+
+.sidebar {
+    background-color: #FFFFFF;
+}
+
+li {
+    text-decoration: none;
+}

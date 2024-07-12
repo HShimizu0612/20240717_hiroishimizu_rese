@@ -20,13 +20,17 @@
     </header>
     <main>
         <div class="sidebar">
-            @guest
-            <link href="/" alt="Home">
-            <link href="/register" alt="Registration">
-            <link href="/login" alt="Login">
-            @endguest
-            @auth
-            @endauth
+            <nav class="sidebar__nav">
+                <li><a href="/">Home</a></li>
+                @guest
+                <li><a href="/register">Registration</a></li>
+                <li><a href="/login">Login</a></li>
+                @endguest
+                @auth
+                <li><a href="/logout">Logout</a></li>
+                <li><a href="/mypage">Mypage</a></li>
+                @endauth
+            </nav>
         </div>
         @yield('content')
     </main>
