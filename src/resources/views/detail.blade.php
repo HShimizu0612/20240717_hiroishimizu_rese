@@ -6,12 +6,12 @@
 
 @section('content')
 <div class="container">
-    <div class="shopDtail">
+    <div class="shop-detail">
         <div class="title">
-            <a href="/">＜</a>
+            <a href="/"><i class="fa-solid fa-angle-left"></i></a>
             <h2>{{ $shop->name }}</h2>
         </div>
-        <div class="shopImg">
+        <div class="shop-img">
             <img src="{{ asset('image/' . $shop->image) }}" alt="">
         </div>
         <div class="tags">

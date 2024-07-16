@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ShopController;
-use App\Httop\Controllers\UserController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\ReservationController;
 
 /*
@@ -25,15 +25,17 @@ Route::middleware('auth')->group(function () {
     Route::post('/reservation', [ReservationController::class, 'postReservation']);
     Route::post('/favorite', [ReservationController::class, 'favorite']);
     Route::post('/favorite/delete', [ReservationController::class, 'unfavorite']);
-    Route::get('/mypage', [AuthController::class, 'getMypage']);
+    Route::get('/mypage', [UserController::class, 'mypage']);
 });
 
 Route::get('/register', [AuthController::class, 'getRegister']);
 Route::post('/register', [AuthController::class, 'postRegister']);
+Route::get('/thanks', [AuthController::class, 'thanks']);
 
 Route::get('/login', [AuthController::class, 'getLogin']);
 Route::post('/login', [AuthController::class, 'postLogin']);
 
 Route::get('/search', [ShopController::class, 'search']);
 
-Route::get('/thanks', [AuthController::class, 'showDone']);
+// CSS確認用ルート
+Route::get('/test', [AuthController::class, 'showDone']);

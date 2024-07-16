@@ -9,18 +9,23 @@
     <link rel="stylesheet" href="{{ asset('css/reset.css') }}">
     <link rel="stylesheet" href="{{ asset('css/common.css') }}">
     @yield('css')
+    <script src="https://kit.fontawesome.com/f37650710a.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
     <header class="header">
         <div class="header__inner">
-            <h1>Rese</h1>
+            <div class="header__title">
+                <a href="#menu"><i class="fa-solid fa-bars"></i></a>
+                <h1>Rese</h1>
+            </div>
             @yield('header')
         </div>
     </header>
     <main>
-        <div class="sidebar">
-            <nav class="sidebar__nav">
+        <div class="modal-menu" id="menu">
+            <nav class="modal-menu__nav">
+                <a href="#" class="modal-menu__close-btn"><i class="fa-solid fa-xmark"></i></a>
                 <li><a href="/">Home</a></li>
                 @guest
                 <li><a href="/register">Registration</a></li>

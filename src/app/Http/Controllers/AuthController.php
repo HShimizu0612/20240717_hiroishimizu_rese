@@ -25,10 +25,15 @@ class AuthController extends Controller
                 'email' => $request['email'],
                 'password' => Hash::make($request['password']),
             ]);
-            return view('auth.completeRegister');
+            return redirect('thanks');
         } catch (\Throwable $th) {
             return redirect('register')->with('result', 'エラーが発生しました');
         }
+    }
+
+    public function thanks()
+    {
+        return view('auth.thanks');
     }
 
     public function getLogin()
@@ -56,6 +61,7 @@ class AuthController extends Controller
         return view('mypage');
     }
 
+    // CSS確認用コード
     public function showDone()
     {
         return view('/done');

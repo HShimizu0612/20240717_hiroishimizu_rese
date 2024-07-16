@@ -1,0 +1,25 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1000px;
+    padding: 50px;
+    box-sizing: border-box;
+}
+
+.shop-detail img {
+    width: 400px;
+}
+
+.title {
+    width: 100%;
+}
+
+.shop-img {
+    width: 400px;
+    height: auto;
+}
+
+.reservation-form {
+    width: 400px;
+    background-color: #3560F6;
+}
