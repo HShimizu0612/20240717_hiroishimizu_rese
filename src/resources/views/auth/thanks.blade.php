@@ -6,7 +6,11 @@
 
 @section('content')
 <div class="container">
-    <h2>会員登録ありがとうございます</h2>
-    <a href="/login">ログインする</a>
+    <div class="comment">
+        <p>会員登録ありがとうございます</p>
+    </div>
+    <div class="login-button">
+        <a class="login-button__link" href="/login">ログインする</a>
+    </div>
 </div>
 @endsection

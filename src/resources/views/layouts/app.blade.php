@@ -16,7 +16,7 @@
     <header class="header">
         <div class="header__inner">
             <div class="header__title">
-                <a href="#menu"><i class="fa-solid fa-bars"></i></a>
+                <a class="menu-button__link" href="#menu"><i class="fa-solid fa-bars"></i></a>
                 <h1>Rese</h1>
             </div>
             @yield('header')
@@ -24,18 +24,20 @@
     </header>
     <main>
         <div class="modal-menu" id="menu">
-            <nav class="modal-menu__nav">
+            <div class="modal-menu__nav">
                 <a href="#" class="modal-menu__close-btn"><i class="fa-solid fa-xmark"></i></a>
-                <li><a href="/">Home</a></li>
-                @guest
-                <li><a href="/register">Registration</a></li>
-                <li><a href="/login">Login</a></li>
-                @endguest
-                @auth
-                <li><a href="/logout">Logout</a></li>
-                <li><a href="/mypage">Mypage</a></li>
-                @endauth
-            </nav>
+                <nav>
+                    <li><a href="/">Home</a></li>
+                    @guest
+                    <li><a href="/register">Registration</a></li>
+                    <li><a href="/login">Login</a></li>
+                    @endguest
+                    @auth
+                    <li><a href="/logout">Logout</a></li>
+                    <li><a href="/mypage">Mypage</a></li>
+                    @endauth
+                </nav>
+            </div>
         </div>
         @yield('content')
     </main>

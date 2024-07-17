@@ -21,7 +21,7 @@ Route::get('/', [ShopController::class, 'index']);
 Route::get('/detail/:{id}', [ShopController::class, 'detail'])->name('shop.detail');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/logout', [AuthController::class, 'getLogout']);
+    Route::get('/logout', [AuthController::class, 'logout']);
     Route::post('/reservation', [ReservationController::class, 'postReservation']);
     Route::post('/favorite', [ReservationController::class, 'favorite']);
     Route::post('/favorite/delete', [ReservationController::class, 'unfavorite']);
@@ -36,6 +36,3 @@ Route::get('/login', [AuthController::class, 'getLogin']);
 Route::post('/login', [AuthController::class, 'postLogin']);
 
 Route::get('/search', [ShopController::class, 'search']);
-
-// CSS確認用ルート
-Route::get('/test', [AuthController::class, 'showDone']);

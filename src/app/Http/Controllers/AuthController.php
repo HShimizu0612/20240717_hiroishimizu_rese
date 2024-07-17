@@ -50,20 +50,9 @@ class AuthController extends Controller
         }
     }
 
-    public function getLogout()
+    public function logout()
     {
         Auth::logout();
         return redirect('login');
-    }
-
-    public function getMypage()
-    {
-        return view('mypage');
-    }
-
-    // CSS確認用コード
-    public function showDone()
-    {
-        return view('/done');
     }
 }

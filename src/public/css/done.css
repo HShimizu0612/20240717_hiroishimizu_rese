@@ -3,6 +3,36 @@
     height: 200px;
     margin: 200px auto;
     padding: 50px 50px;
+    border-radius: 10px;
     box-shadow: 5px 5px 3px #999999;
     background-color: #FFFFFF;
+}
+
+p {
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+}
+
+.login-button,
+.return-button {
+    height: 50px;
+    margin: 50px;
+    text-align: center;
+}
+
+.login-button__link,
+.return-button__link {
+    display: block;
+    width: 50px;
+    margin: auto;
+    padding: 1rem 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    vertical-align: middle;
+    text-decoration: none;
+    border-radius: 5px;
+    background-color: #3560F6;
+    color: #FFFFFF;
+    transition: 0.5s;
 }
