@@ -27,23 +27,22 @@
 @endsection
 
 @section('content')
-@auth
-<p>ようこそ{{ Auth::user()->name }}さん</p>
-@endauth
-@foreach ($shops as $shop)
-<div class="shop-card">
-    <div class="shop-card__image">
-        <div>
-            <img src="{{ asset('image/' . $shop->image) }}" alt="">
+<div class="shops">
+    @foreach ($shops as $shop)
+    <div class="shop-card">
+        <div class="shop-card__image">
+            <div>
+                <img src="{{ asset('image/' . $shop->image) }}" alt="">
+            </div>
+        </div>
+        <div class="shop-card__contents">
+            <h6>{{ $shop->name }}</h6>
+            <p class="tag">#{{ $shop['area']['area'] }}</p>
+            <p class="tag">#{{ $shop['genre']['genre'] }}</p>
+            <a class="detail-button__link" href="{{ route('shop.detail', ['id'=>$shop->id]) }}">詳しくみる</a>
+            <a class="favorite-button" href="/favorite"><i class="fa-solid fa-heart"></i></a>
         </div>
     </div>
-    <div class="shop-card__contents">
-        <h6>{{ $shop->name }}</h6>
-        <p class="tag">#{{ $shop['area']['area'] }}</p>
-        <p class="tag">#{{ $shop['genre']['genre'] }}</p>
-        <a href="{{ route('shop.detail', ['id'=>$shop->id]) }}">詳しくみる</a>
-        <a href="/login"><i class="fa-solid fa-heart"></i></a>
-    </div>
+    @endforeach
 </div>
-@endforeach
 @endsection
