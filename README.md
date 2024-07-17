@@ -33,10 +33,10 @@ Docker
 MySQL
 
 ## テーブル設計
-
+[テーブル仕様書.pdf](https://github.com/user-attachments/files/16266818/default.pdf)
 
 ## ER図
-
+![スクリーンショット 2024-07-17 200331](https://github.com/user-attachments/assets/5e2c090c-bb55-431c-aef9-bbdc7f4a3d8c)
 
 ## 環境構築
 当アプリケーションをダウンロード後、ターミナル上でdocker-composeコマンドでビルド
