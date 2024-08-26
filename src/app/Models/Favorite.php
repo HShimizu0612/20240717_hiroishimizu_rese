@@ -18,4 +18,20 @@ class Favorite extends Model
     {
         return $this->belongsTo(Shop::class);
     }
+
+    protected $fillable = [
+        'user_id',
+        'shop_id'
+    ];
+
+    public static function favorite($user_id, $shop_id)
+    {
+        $param = [
+            "user_id" => $user_id,
+            "shop_id" => $shop_id
+        ];
+        $favorite = Favorite::create($param);
+
+        return $favorite;
+    }
 }

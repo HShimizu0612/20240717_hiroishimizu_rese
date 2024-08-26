@@ -14,29 +14,33 @@
             <div class="reservation__title">
                 <h4>予約状況</h4>
             </div>
-            @foreach ($reservations as $reservation)
+            @foreach ($user->reservations as $reservation)
             <div class="reservation-card">
                 <div class="reservation-card__title">
                     <i></i>
-                    <p>予約</p>
+                    <p>予約{{ $reservation->pivot->id }}</p>
+                    <form action="{{ route('reserve.delete', ['reservation_id' => $reservation->pivot->id]) }}" method="POST">
+                        @csrf
+                        <input type="submit" onclick='return confirm("予約を取り消しますか？");'>
+                    </form>
                 </div>
                 <table>
                     <tr>
                         <th>Shop</th>
-                        <td>{{ $reservation->shop_id }}</td>
+                        <td>{{ $reservation->pivot->shop_id }}</td>
                     </tr>
                     <tr>
                         <th>Date</th>
-                        <td>{{ $reservation->date }}</td>
+                        <td>{{ $reservation->pivot->date }}</td>
                     </tr>
                     <tr>
                         <th>Time</th>
-                    <tr>{{ $reservation->time_id }}
-                    </tr>
+                        <td>{{ $reservation->pivot->time_id }}
+                        </td>
                     </tr>
                     <tr>
                         <th>Number</th>
-                        <td>{{ $reservation->number_id }}</td>
+                        <td>{{ $reservation->pivot->number_id }}</td>
                     </tr>
                 </table>
             </div>

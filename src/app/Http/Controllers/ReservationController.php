@@ -20,22 +20,22 @@ class ReservationController extends Controller
         return view('done');
     }
 
-    public function favorite(Request $request, Shop $shop)
+    public function delete($reservation_id)
     {
-        $favorite = new Favorite;
-        $favorite->shop_id = $request->shop_id;
-        $favorite->user_id = Auth::user()->id;
-        $favorite->save();
-
-        return view('/');
+        Reservation::find($reservation_id)->delete();
+        session()->flash('fs_msg', '削除されました');
+        return redirect('mypage');
     }
 
-    public function unfavorite(Request $request, $id)
+    public function favorite($shop_id)
     {
-        $shop = Shop::findOrFail($id);
+        Favorite::favorite(Auth::id(), $shop_id);
+        return redirect()->back();
+    }
 
-        $shop->favorites()->delete();
-
-        return view('/');
+    public function unfavorite($shop_id)
+    {
+        Favorite::where('user_id', Auth::id())->where('shop_id', $shop_id)->delete();
+        return redirect()->back();
     }
 }

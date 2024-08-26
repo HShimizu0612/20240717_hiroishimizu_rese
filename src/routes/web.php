@@ -23,6 +23,7 @@ Route::get('/detail/:{id}', [ShopController::class, 'detail'])->name('shop.detai
 Route::middleware('auth')->group(function () {
     Route::get('/logout', [AuthController::class, 'logout']);
     Route::post('/reservation', [ReservationController::class, 'postReservation']);
+    Route::post('/reserve/{reservation_id}', [ReservationController::class, 'delete'])->name('reserve.delete');
     Route::post('/favorite', [ReservationController::class, 'favorite']);
     Route::post('/favorite/delete', [ReservationController::class, 'unfavorite']);
     Route::get('/mypage', [UserController::class, 'mypage']);
