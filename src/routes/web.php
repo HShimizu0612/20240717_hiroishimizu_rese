@@ -24,9 +24,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/logout', [AuthController::class, 'logout']);
     Route::post('/reservation', [ReservationController::class, 'postReservation']);
     Route::post('/reserve/{reservation_id}', [ReservationController::class, 'delete'])->name('reserve.delete');
-    Route::post('/favorite', [ReservationController::class, 'favorite']);
-    Route::post('/favorite/delete', [ReservationController::class, 'unfavorite']);
-    Route::get('/mypage', [UserController::class, 'mypage']);
+    Route::post('/favorite/{shop_id}', [ReservationController::class, 'favorite'])->name('favorite');
+    Route::post('/unfavorite/{shop_id}', [ReservationController::class, 'unfavorite'])->name('unfavorite');
+    Route::get('/mypage', [UserController::class, 'mypage'])->name('mypage');
 });
 
 Route::get('/register', [AuthController::class, 'getRegister']);

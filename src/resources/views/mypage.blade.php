@@ -49,6 +49,34 @@
         <div class="favorite">
             <div class="favorite__title">
                 <h4>お気に入り店舗</h4>
+                <div>
+                    @foreach($user->favorites as $shop)
+                    <div class="shop-card">
+                        <h2 class="shop-card__content_ttl">{{ $shop->name }}</h2>
+                        <p class="shop-card__content_txt">
+                            #{{$shop->area->area}}&nbsp;#{{$shop->genre->genre}}
+                        </p>
+                        <div>
+                            <a class="shop-card__content_link" href="{!! '/detail' . $shop->id !!}">
+                                詳しく見る
+                            </a>
+                            @if( Auth::check() )
+                            @if(count($shop->favorites) == 0)
+                            <form action="{{ route('favorite', ['shop_id' => $shop->id]) }}">
+                                @csrf
+                                <input class="unfavorite" type="image" alt="いいね">
+                            </form>
+                            @else
+                            <form method="POST" action="{{ route('unfavorite', ['shop_id' => $shop->id]) }}">
+                                @csrf
+                                <input class="favorite" type="image" alt="いいねを外す">
+                            </form>
+                            @endif
+                            @endif
+                        </div>
+                    </div>
+                    @endforeach
+                </div>
             </div>
         </div>
     </div>

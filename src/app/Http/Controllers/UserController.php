@@ -20,7 +20,7 @@ class UserController extends Controller
         // $numbers = Number::all();
         // return view('mypage', compact('reservations', 'shops', 'times', 'numbers'));
 
-        $user = User::find(Auth::id())->with('reservations')->first();
+        $user = User::find(Auth::id())->with('reservations', 'favorites.area', 'favorites.genre', 'favorites.favorites')->first();
 
         return view('/mypage', compact('user'));
     }

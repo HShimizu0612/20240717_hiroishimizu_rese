@@ -40,7 +40,20 @@
             <p class="tag">#{{ $shop['area']['area'] }}</p>
             <p class="tag">#{{ $shop['genre']['genre'] }}</p>
             <a class="detail-button__link" href="{{ route('shop.detail', ['id'=>$shop->id]) }}">詳しくみる</a>
-            <a class="favorite-button" href="/favorite"><i class="fa-solid fa-heart"></i></a>
+            <!-- <a class="favorite-button" href="/favorite"><i class="fa-solid fa-heart"></i></a> -->
+            @if( Auth::check() )
+            @if(count($shop->favorites) == 0)
+            <form method="POST" action="{{ route('favorite', ['shop_id' => $shop->id]) }}">
+                @csrf
+                <input class="unfavorite" type="image" alt="いいね">
+            </form>
+            @else
+            <form method="POST" action="{{ route('unfavorite', ['shop_id' => $shop->id]) }}">
+                @csrf
+                <input class="favorite" type="image" alt="いいねを外す">
+            </form>
+            @endif
+            @endif
         </div>
     </div>
     @endforeach
